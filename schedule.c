@@ -86,8 +86,13 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	schedInfo_t* schedPtr;
 	
 	//error handler
-
+	if (schedPtr == NULL)
+	{
+		printf("[ERROR]\n");
+		return -1; 
+	}
 	//allocate memory and set the member variables
+	schedPtr = (schedInfo_t*)malloc(sizeof(schedInfo_t));
 	
 	
 	return (void*)schedPtr;
