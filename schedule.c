@@ -85,15 +85,18 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
 	
-	//error handler
-	if (schedPtr == NULL)
-	{
-		printf("[ERROR]\n");
-		return -1; 
-	}
 	//allocate memory and set the member variables
 	schedPtr = (schedInfo_t*)malloc(sizeof(schedInfo_t));
 	
+	//error handler
+	if (schedPtr == NULL)
+	{
+		printf("[ERROR]memory allocation error\n");
+		return -1; 
+	}	
+	
+	
+	free(schedPtr);
 	
 	return (void*)schedPtr;
 }
@@ -124,6 +127,15 @@ char* sched_getPlace(void* obj)
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
-	
+	enum typeName{
+		drama,
+		movie,
+		advertisement,
+		entertainment,
+		meeting,
+		fitness,
+		privacy	
+	};
+			
 }
 
